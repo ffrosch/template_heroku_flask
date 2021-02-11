@@ -15,7 +15,7 @@ The fifth and final project for the Udacity Full Stack Web Developer Nanodegree.
 
         ```sh
         # .env
-        FLASK_APP=app.py
+        FLASK_APP=run.py
         FLASK_ENV=development
         DATABASE_URL=postgres://localhost:5432/<DB NAME>
 
@@ -28,7 +28,7 @@ The fifth and final project for the Udacity Full Stack Web Developer Nanodegree.
     - Use `Procfile` to tell Heroku what to run. In our case one line with `web: gunicorn app:app` is enough (given that our python application resides within app.py), e.g.
 
         ```sh
-        web: gunicorn app:app
+        web: gunicorn 'app:create_app()'
         release: bash ./release-tasks.sh
         ```
 
@@ -42,8 +42,8 @@ The fifth and final project for the Udacity Full Stack Web Developer Nanodegree.
     - Use `release-tasks.sh` to specify multiple tasks that should be run after the build process, e.g.
 
         ```sh
-        python manage.py db init
-        python manage.py db migrate
+        # python manage.py db init
+        # python manage.py db migrate
         python manage.py db upgrade
         ```
 
